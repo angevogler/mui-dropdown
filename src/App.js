@@ -38,6 +38,7 @@ class App extends Component {
           selected_option={this.state.selected_option}
           options={this.state.options}
           selected_option_update={this.selected_option_update}
+          placeholder="Placeholder"
         />
       </div>
     );

@@ -5,7 +5,7 @@ import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 
-export default class DropDown extends Component {
+export default class FloatingLabelDropDown extends Component {
   state = {
     value: "",
   }
@@ -14,17 +14,25 @@ export default class DropDown extends Component {
     this.setState({value: e.target.value});
   }
   render() {
+    let menu_items = this.props.options.map((option, i) => {
+      return (
+        <MenuItem
+        key={i}
+        className="drop_down_option"
+        value={option.rowguid}>
+          {option.value}
+        </MenuItem>
+      )
+    })
     return (
         <FormControl className="drop_down_outer">
           <InputLabel className="drop_down_label">Label</InputLabel>
           <Select
-            value={this.state.value}
-            onChange={(e) => this.value_update(e)}
+            value={this.props.selected_option}
+            onChange={(e) => this.props.selected_option_update(e)}
             input={<Input className="drop_down_input"/>}
           >
-            <MenuItem className="drop_down_option" value="option_1">Option 1</MenuItem>
-            <MenuItem className="drop_down_option" value="option_2">Option 2</MenuItem>
-            <MenuItem className="drop_down_option" value="option_3">Option 3</MenuItem>
+            {menu_items}
           </Select>
         </FormControl>
     )

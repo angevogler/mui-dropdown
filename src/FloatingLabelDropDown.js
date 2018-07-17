@@ -6,13 +6,6 @@ import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 
 export default class FloatingLabelDropDown extends Component {
-  state = {
-    value: "",
-  }
-  value_update = (e) => {
-    console.log(e.target.value);
-    this.setState({value: e.target.value});
-  }
   render() {
     let menu_items = this.props.options.map((option, i) => {
       return (
@@ -24,8 +17,9 @@ export default class FloatingLabelDropDown extends Component {
         </MenuItem>
       )
     })
+
     return (
-        <FormControl className="drop_down_outer">
+        <FormControl className="drop_down_outer" style={{minWidth: '150px', margin: '50px'}}>
           <InputLabel className="drop_down_label">Label</InputLabel>
           <Select
             value={this.props.selected_option}

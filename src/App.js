@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import FloatingLabelDropDown from './FloatingLabelDropDown';
+import DropDown from './DropDown';
 
 class App extends Component {
   state = {
@@ -21,7 +21,7 @@ class App extends Component {
           value: 'Option 4'
         },
     ],
-    selected_option: 'option_1',
+    selected_option: '',
   }
   selected_option_update = (e) => {
     this.setState({selected_option: e.target.value});
@@ -30,6 +30,11 @@ class App extends Component {
     return (
       <div className="App">
         <FloatingLabelDropDown
+          selected_option={this.state.selected_option}
+          options={this.state.options}
+          selected_option_update={this.selected_option_update}
+        />
+        <DropDown
           selected_option={this.state.selected_option}
           options={this.state.options}
           selected_option_update={this.selected_option_update}

@@ -32,7 +32,7 @@ const DropDown = (props) => {
 
   let input_style = {
     textAlign: 'left',
-    padding: '0 5px',
+    paddingLeft: '5px',
     border: '1px solid black',
     borderRadius: '3px',
   };

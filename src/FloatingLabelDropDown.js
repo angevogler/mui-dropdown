@@ -32,20 +32,27 @@ const FloatingLabelDropDown = (props) => {
       )
     });
 
+    let form_control_style = {
+      minWidth: '150px',
+      margin: '50px',
+      border: props.selected_option !== '' ? '1px solid black' : 'none',
+      borderRadius: '3px',
+    }
+
     let input_style = {
       textAlign: 'left',
       paddingLeft: '5px',
-      border: '1px solid black',
+      border: props.selected_option === '' ? '1px solid black' : 'none',
       borderRadius: '3px',
     };
 
     let label_style = {
-      padding: '0 5px',
-      color: 'black',
+      padding: props.selected_option === '' ? '0 5px' : '5px',
+      color: '#ccc',
     }
 
     return (
-      <FormControl className="drop_down_outer" style={{minWidth: '150px', margin: '50px'}}>
+      <FormControl className="drop_down_outer" style={form_control_style}>
         <InputLabel className="drop_down_label" style={label_style}>Label</InputLabel>
         <Select
           value={props.selected_option}

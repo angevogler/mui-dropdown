@@ -45,6 +45,12 @@ const DropDown = (props) => {
     fontStyle: 'italic',
   }
 
+  let placeholder = props.selected_option === '' ? (
+    <MenuItem className="drop_down_option placeholder" value="" style={placeholder_style}>
+      {props.placeholder}
+    </MenuItem>
+  ) : null;
+
   return (
     <FormControl className="drop_down_outer" style={{minWidth: '150px', margin: '50px'}}>
       <Select
@@ -57,9 +63,7 @@ const DropDown = (props) => {
         />}
         displayEmpty
       >
-        <MenuItem className="drop_down_option placeholder" value="" style={placeholder_style}>
-          {props.placeholder}
-        </MenuItem>
+        {placeholder}
         {menu_items}
       </Select>
     </FormControl>

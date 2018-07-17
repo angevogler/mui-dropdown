@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
@@ -59,6 +60,12 @@ const FloatingLabelDropDown = (props) => {
         </Select>
       </FormControl>
     )
+}
+
+FloatingLabelDropDown.propTypes = {
+  selected_option: PropTypes.string,
+  options: PropTypes.array,
+  selected_option_update: PropTypes.func,
 }
 
 export default withStyles(styles)(FloatingLabelDropDown);
